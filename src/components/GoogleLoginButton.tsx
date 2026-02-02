@@ -6,8 +6,7 @@ export function GoogleLoginButton() {
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      const result = await signInWithPopup(auth, provider);
-      console.log("Usuari autenticat:", result.user);
+      await signInWithPopup(auth, provider);
     } catch (error) {
       console.error("Error durant l'autenticació amb Google:", error);
     }
