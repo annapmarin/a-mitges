@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { useEffect } from "react";
 import { GoogleLoginButton } from "../components/GoogleLoginButton";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
@@ -15,7 +13,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (user) {
-      navigate('/projects');
+      navigate('/projectes');
     }
   }, [user, navigate]);
 
