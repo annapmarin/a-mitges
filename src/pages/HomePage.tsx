@@ -1,31 +1,48 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../config/firebase";
+import { GoogleLoginButton } from "../components/GoogleLoginButton";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import Logo from '../assets/logo.svg';
-import { GoogleLoginButton } from "../components/GoogleLoginButton";
-import { Button } from "../components/Button";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function HomePage() {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+
   useEffect(() => {
-    gsap.registerPlugin(SplitText);
+    if (user) {
+      navigate('/projects');
+    }
+  }, [user, navigate]);
 
-    const split = new SplitText(".split", {
-      type: "words, chars, lines"
-    });
+  useEffect(() => {
+    if (!user) {
+      gsap.registerPlugin(SplitText);
 
-    gsap.from(split.lines, {
-      rotationX: -100,
-      transformOrigin: "50% 50% -160px",
-      opacity: 0,
-      duration: 0.8, 
-      ease: "power3",
-      stagger: 0.25
-    });
+      const split = new SplitText(".split", {
+        type: "words, chars, lines"
+      });
 
-    return () => {
-      split.revert();
-    };
-  }, []);
+      gsap.from(split.lines, {
+        rotationX: -100,
+        transformOrigin: "50% 50% -160px",
+        opacity: 0,
+        duration: 0.8, 
+        ease: "power3",
+        stagger: 0.25
+      });
+
+      return () => {
+        split.revert();
+      };
+    }
+  });
+
+  if (loading) return null;
 
   return (
     <section className="home-page">
@@ -34,7 +51,6 @@ export default function HomePage() {
       <span className="split">Divideix i comparteix</span>
       <div className="buttons">
         <GoogleLoginButton />
-        <Button label="Continuar amb email" onClick={() => {}} fullWidth />
       </div>
     </section>
   );
