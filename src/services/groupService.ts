@@ -1,4 +1,11 @@
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"
+import { 
+  collection, 
+  addDoc, 
+  serverTimestamp,
+  query,
+  where,
+  getDocs 
+} from "firebase/firestore"
 import { db } from "../config/firebase"
 
 export const createGroup = async (groupName: string, creatorId: string) => {
@@ -64,6 +71,27 @@ export const addGuestParticipant = async (
 
   } catch (error) {
     console.error("Error afegint participant no registrat:", error)
+    throw error
+  }
+}
+
+// Obtenir grups d'usuari regiestrat
+export const getUserGroups = async (userId: string) => {
+  try {
+    const q = query(
+      collection(db, "grups"),
+      where("creatorId", "==", userId)
+    )
+
+    const querySnapshot = await getDocs(q)
+    const groups = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }))
+
+    return groups
+  } catch (error) {
+    console.error("Error obtenint grups de l'usuari:", error)
     throw error
   }
 }
