@@ -5,10 +5,12 @@ import { Navbar } from "../components/Navbar"
 import { AddParticipantForm } from "../components/AddParticipantForm"
 import { ParticipantsList } from "../components/ParticipantsList"
 import { Button } from "../components/Button"
+import { useNavigate } from "react-router-dom"
 import "../styles/create-group-page.css"
 
 export default function CreateGroupPage() {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const {
     groupName,
     setGroupName,
@@ -39,6 +41,10 @@ export default function CreateGroupPage() {
     <>
       {user && <Navbar user={user} />}
       <div className="create-group-page">
+        <button className="back-btn" onClick={() => navigate("/projectes")}>
+          ← Tornar
+        </button>
+
         <h1>Crear nou grup</h1>
 
         <input
