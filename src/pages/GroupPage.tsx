@@ -5,6 +5,7 @@ import { useGroupDetails } from "../hooks/useGroupDetails";
 import { deleteGroup } from "../services/groupService";
 import { Navbar } from "../components/Navbar";
 import { ExpensesList } from "../components/ExpensesList";
+import GroupSummary from "../components/GroupSummary";
 import "../styles/group-detail.css";
 
 export default function GroupPage() {
@@ -40,8 +41,12 @@ export default function GroupPage() {
         <button className="back-btn" onClick={() => navigate("/projectes")}>
           ← Tornar
         </button>
-        {/* Nom del grup */}
         <h1>{groupName}</h1>
+        <GroupSummary
+          expenses={expenses}
+          participants={participants}
+          currentUserId={user?.uid}
+        />
         <button 
           className="add-expense-btn"
           onClick={() => navigate(`/group/${groupId}/afegir-despesa`)}
