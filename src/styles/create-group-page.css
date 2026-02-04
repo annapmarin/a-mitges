@@ -122,6 +122,26 @@
   transform: scale(0.97);
 }
 
+.add-participant-section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mensajes de búsqueda */
+.searching-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.registered-text {
+  color: rgba(100, 255, 100, 0.9);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
 .participants-list {
   display: flex;
   flex-direction: column;
