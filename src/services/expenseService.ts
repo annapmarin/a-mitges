@@ -7,7 +7,7 @@ export interface Expense {
   description: string
   amount: number
   paidBy: string
-  dividedAmong: string[]
+  splitBetween: string[]
   createdAt: any
 }
 
