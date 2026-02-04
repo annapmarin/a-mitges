@@ -95,3 +95,21 @@ export const getUserGroups = async (userId: string) => {
     throw error
   }
 }
+
+// Obtenir participants d'un grup
+export const getGroupParticipants = async (groupId: string) => {
+  try {
+    const participantsRef = collection(db, "grups", groupId, "participants");
+    const querySnapshot = await getDocs(participantsRef);
+    
+    const participants = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    
+    return participants;
+  } catch (error) {
+    console.error("Error en obtenir participants:", error);
+    throw error;
+  }
+};
