@@ -24,7 +24,7 @@ export function useCreateGroup(userId: string | undefined) {
   };
 
   const createGroupWithParticipants = async (userDisplayName: string, userEmail: string) => {
-    if (!groupName.trim() || !userId || participants.length < 2) return;
+    if (!groupName.trim() || !userId || participants.length < 1) return;
 
     try {
       setLoading(true);

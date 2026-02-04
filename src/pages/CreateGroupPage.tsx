@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useAuth } from "../hooks/useAuth"
 import { useCreateGroup } from "../hooks/useCreateGroup"
 import { Navbar } from "../components/Navbar"
@@ -17,6 +18,17 @@ export default function CreateGroupPage() {
     createGroupWithParticipants,
     loading
   } = useCreateGroup(user?.uid)
+
+  useEffect(() => {
+    if (user && participants.length === 0) {
+      addParticipant({
+        id: user.uid,
+        type: "registrat",
+        name: "Tu",
+        email: user.email || ""
+      })
+    }
+  }, [user])
 
   const handleCreate = () => {
     if (!user) return
