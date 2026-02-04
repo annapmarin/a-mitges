@@ -15,8 +15,8 @@
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #FFFFFF3F;
+  background: #FFFFFF26;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: #ffffff;
@@ -25,7 +25,7 @@
 }
 
 .add-expense-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #FFFFFF3F;
   transform: translateY(-2px);
 }
 
@@ -48,7 +48,7 @@
 
 .expenses-list > p {
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF99;
   font-size: 1rem;
   padding: 2rem;
 }
@@ -56,23 +56,23 @@
 .expense-item {
   padding: 1.5rem;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FFFFFF33;
+  background: #FFFFFF19;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.25s ease;
 }
 
 .expense-item:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: #FFFFFF26;
+  border-color: #FFFFFF4D;
   transform: translateY(-2px);
 }
 
 .expense-delete-btn {
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.9);
+  border: 1px solid #FFFFFF1E;
+  color: #FFFFFFE5;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
@@ -81,8 +81,8 @@
 }
 
 .expense-delete-btn:hover {
-  background: rgba(255,50,50,0.14);
-  border-color: rgba(255,80,80,0.4);
+  background: #FF323224;
+  border-color: #FF505066;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -107,8 +107,8 @@
 .expense-amount {
   font-size: 1.3rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFFF2;
+  background: #FFFFFF26;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   white-space: nowrap;
@@ -119,16 +119,15 @@
   flex-direction: column;
   gap: 0.5rem;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #FFFFFF26;
 }
 
 .expense-details p {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #FFFFFFBF;
   margin: 0;
 }
 
-/* Botón de eliminar grupo */
 .delete-group-btn {
   padding: 1rem 2rem;
   width: 100%;
@@ -137,18 +136,18 @@
   font-size: 0.95rem;
   font-weight: 500;
   border-radius: 12px;
-  border: 1px solid rgba(255, 100, 100, 0.4);
-  background: rgba(255, 50, 50, 0.15);
+  border: 1px solid #FF646466;
+  background: #FF323226;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  color: rgba(255, 150, 150, 0.95);
+  color: #FF9696F2;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .delete-group-btn:hover {
-  background: rgba(255, 50, 50, 0.25);
-  border-color: rgba(255, 100, 100, 0.6);
+  background: #FF32323F;
+  border-color: #FF646499;
   color: #ffffff;
   transform: translateY(-1px);
 }
@@ -164,7 +163,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: #000000B3;
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -174,10 +173,10 @@
 }
 
 .modal-content {
-  background: rgba(20, 20, 20, 0.95);
+  background: #141414F2;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #FFFFFF33;
   border-radius: 16px;
   padding: 2rem;
   max-width: 400px;
@@ -209,7 +208,7 @@
 }
 
 .modal-content p {
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFFCC;
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
@@ -218,8 +217,8 @@
   width: 100%;
   padding: 12px 18px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FFFFFF3F;
+  background: #FFFFFF19;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
@@ -230,13 +229,13 @@
 }
 
 .confirm-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF66;
 }
 
 .confirm-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: #FFFFFF26;
+  border-color: #FFFFFF66;
 }
 
 .modal-buttons {
@@ -248,23 +247,23 @@
 .cancel-btn {
   padding: 10px 20px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #FFFFFF33;
+  background: #FFFFFF19;
+  color: #FFFFFFE5;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.95rem;
 }
 
 .cancel-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #FFFFFF26;
 }
 
 .confirm-delete-btn {
   padding: 10px 20px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 80, 80, 0.5);
-  background: rgba(255, 50, 50, 0.3);
+  border: 1px solid #FF505080;
+  background: #FF32324D;
   color: #ffffff;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -273,8 +272,8 @@
 }
 
 .confirm-delete-btn:hover:not(:disabled) {
-  background: rgba(255, 50, 50, 0.5);
-  border-color: rgba(255, 80, 80, 0.7);
+  background: #FF323280;
+  border-color: #FF5050B3;
 }
 
 .confirm-delete-btn:disabled {
@@ -300,8 +299,8 @@
 .group-summary {
   padding: 1rem 1.25rem;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
+  border: 1px solid #FFFFFF1E;
+  background: #FFFFFF0F;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -329,12 +328,12 @@
   border-radius: 8px;
 }
 
-.summary-line.positive { background: rgba(40,160,40,0.06); }
-.summary-line.negative { background: rgba(255,40,40,0.04); }
+.summary-line.positive { background: #28A0280F; }
+.summary-line.negative { background: #FF28280A; }
 .summary-line.zero { background: transparent; }
 
-.summary-name { color: rgba(255,255,255,0.9); }
-.summary-amount { color: rgba(255,255,255,0.85); font-weight: 600; }
+.summary-name { color: #FFFFFFE5; }
+.summary-amount { color: #FFFFFFD8; font-weight: 600; }
 
 .summary-settlements h3 {
   margin: 0.5rem 0 0.25rem 0;
@@ -349,8 +348,8 @@
   align-items: center;
   padding: 6px 8px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.02);
-  color: rgba(255,255,255,0.9);
+  background: #FFFFFF05;
+  color: #FFFFFFE5;
 }
 
 .transfer-desc { font-size: 0.95rem; }

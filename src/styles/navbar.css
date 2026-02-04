@@ -25,9 +25,9 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: #FFFFFF19;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #FFFFFF33;
   border-radius: 50px;
   padding: 4px 14px 4px 0;
   cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .user-button:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #FFFFFF26;
   transform: translateY(-2px);
 }
 
@@ -44,7 +44,7 @@
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #FFFFFF4C;
 }
 
 .user-button span {
@@ -57,12 +57,12 @@
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: #FFFFFFF2;
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 0.5rem;
   min-width: 160px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px #00000026;
   animation: fadeIn 0.2s ease;
   z-index: 10;
 }
@@ -92,5 +92,5 @@
 }
 
 .dropdown-menu button:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: #0000000D;
 }

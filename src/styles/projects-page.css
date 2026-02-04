@@ -22,7 +22,7 @@
 }
 
 .projects-page .add-group-btn:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #FFFFFF0D;
   transform: translateY(-2px);
 }
 
@@ -30,8 +30,8 @@
   padding: 2rem;
   width: 100%;
   border-radius: 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FFFFFF3F;
+  background: #FFFFFF19;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
@@ -42,9 +42,9 @@
 }
 
 .projects-page .group-card:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #FFFFFF26;
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: #FFFFFF59;
 }
 
 .projects-page .group-card h3 {
@@ -56,7 +56,7 @@
 
 .projects-page .group-card p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #FFFFFFB3;
   margin: 0;
 }
 
