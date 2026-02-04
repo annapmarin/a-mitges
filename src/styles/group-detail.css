@@ -328,12 +328,22 @@
   border-radius: 8px;
 }
 
-.summary-line.positive { background: #28A0280F; }
-.summary-line.negative { background: #FF28280A; }
-.summary-line.zero { background: transparent; }
+.summary-line.positive { 
+  background: #28A0280F; 
+}
+.summary-line.negative { 
+  background: #FF28280A; 
+}
+.summary-line.zero { 
+  background: transparent; 
+}
 
-.summary-name { color: #FFFFFFE5; }
-.summary-amount { color: #FFFFFFD8; font-weight: 600; }
+.summary-name { 
+  color: #FFFFFFE5; 
+}
+.summary-amount { 
+  color: #FFFFFFD8; font-weight: 600; 
+}
 
 .summary-settlements h3 {
   margin: 0.5rem 0 0.25rem 0;
