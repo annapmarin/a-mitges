@@ -1,0 +1,43 @@
+.projects-page {
+  padding: 1.5rem;
+}
+
+.projects-page h1 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.projects-page .add-group-btn {
+  padding: 2rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+  border-radius: 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.projects-page .add-group-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.projects-page .groups-list {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .projects-page .groups-list {
+    grid-template-columns: repeat(autofill, minmax(300px, 1fr));
+  }
+
+  .projects-page .add-group-btn {
+    width: 300px;
+  }
+}
