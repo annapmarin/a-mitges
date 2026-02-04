@@ -4,7 +4,9 @@ import {
   serverTimestamp,
   query,
   where,
-  getDocs 
+  getDocs,
+  deleteDoc,
+  doc
 } from "firebase/firestore"
 import { db } from "../config/firebase"
 
@@ -35,6 +37,7 @@ export const addRegisteredParticipant = async (
     const participantRef = await addDoc(
       collection(db, "grups", groupId, "participants"),
       {
+        type: "registrat",
         userId,
         name,
         email,
@@ -102,10 +105,14 @@ export const getGroupParticipants = async (groupId: string) => {
     const participantsRef = collection(db, "grups", groupId, "participants");
     const querySnapshot = await getDocs(participantsRef);
     
-    const participants = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
+    const participants = querySnapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: data.type === "registered" && data.userId ? data.userId : doc.id,
+        docId: doc.id,
+        ...data
+      };
+    });
     
     return participants;
   } catch (error) {
@@ -113,3 +120,27 @@ export const getGroupParticipants = async (groupId: string) => {
     throw error;
   }
 };
+
+// Eliminar un grup
+export const deleteGroup = async (groupId: string) => {
+  try {
+    // Eliminar tots els participants
+    const participantsRef = collection(db, "grups", groupId, "participants");
+    const participantsSnapshot = await getDocs(participantsRef);
+    const participantDeletes = participantsSnapshot.docs.map(doc => deleteDoc(doc.ref));
+    await Promise.all(participantDeletes);
+
+    // Eliminar totes les despeses
+    const expensesRef = collection(db, "grups", groupId, "expenses");
+    const expensesSnapshot = await getDocs(expensesRef);
+    const expenseDeletes = expensesSnapshot.docs.map(doc => deleteDoc(doc.ref));
+    await Promise.all(expenseDeletes);
+
+    // Finalment, eliminar el grup
+    await deleteDoc(doc(db, "grups", groupId));
+    console.log("Grup eliminat amb ID:", groupId);
+  } catch (error) {
+    console.error("Error eliminant el grup:", error);
+    throw error;
+  }
+}
