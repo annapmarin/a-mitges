@@ -82,18 +82,32 @@ export const addGuestParticipant = async (
 // Obtenir grups d'usuari regiestrat
 export const getUserGroups = async (userId: string) => {
   try {
-    const q = query(
-      collection(db, "grups"),
-      where("creatorId", "==", userId)
-    )
+    // 1) Grups creats per l'usuari
+    const createdQ = query(collection(db, "grups"), where("creatorId", "==", userId));
+    const createdSnapshot = await getDocs(createdQ);
+    const createdGroups = createdSnapshot.docs.map(d => ({ id: d.id, ...(d.data() as any) }));
 
-    const querySnapshot = await getDocs(q)
-    const groups = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }))
+    // 2) Grups on és participant 
+    const allGroupsSnapshot = await getDocs(collection(db, "grups"));
+    const participantGroups: any[] = [];
 
-    return groups
+    for (const gdoc of allGroupsSnapshot.docs) {
+      const gid = gdoc.id;
+      // botar els grups ja afegits
+      if (createdGroups.some(g => g.id === gid)) continue;
+
+      // comprovar si l'usuari és participant
+      const participantsQ = query(collection(db, "grups", gid, "participants"), where("userId", "==", userId));
+      const pSnapshot = await getDocs(participantsQ);
+      if (!pSnapshot.empty) {
+        participantGroups.push({ id: gdoc.id, ...(gdoc.data() as any) });
+      }
+    }
+
+    // Combinar i eliminar duplicats
+    const mergedById: Record<string, any> = {};
+    [...createdGroups, ...participantGroups].forEach(g => { if (g && g.id) mergedById[g.id] = g; });
+    return Object.values(mergedById);
   } catch (error) {
     console.error("Error obtenint grups de l'usuari:", error)
     throw error
@@ -122,7 +136,7 @@ export const getGroupParticipants = async (groupId: string) => {
   }
 };
 
-// Obtener un grupo por ID
+// Obtenir un grup per ID
 export const getGroupById = async (groupId: string) => {
   try {
     const groupDoc = await getDoc(doc(db, "grups", groupId));
@@ -149,7 +163,7 @@ export const deleteGroup = async (groupId: string) => {
     const expenseDeletes = expensesSnapshot.docs.map(doc => deleteDoc(doc.ref));
     await Promise.all(expenseDeletes);
 
-    // Finalment, eliminar el grup
+    // Eliminar el grup
     await deleteDoc(doc(db, "grups", groupId));
     console.log("Grup eliminat amb ID:", groupId);
   } catch (error) {
