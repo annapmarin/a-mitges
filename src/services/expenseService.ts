@@ -1,4 +1,4 @@
-import { collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp, query, where, getDocs, doc, deleteDoc } from "firebase/firestore"
 import { db } from "../config/firebase"
 
 export interface Expense {
@@ -35,4 +35,13 @@ export const getGroupExpenses = async (groupId: string) => {
     console.error("Error obtenint les despeses del grup:", error);
     throw error;
   }
-}
+};
+
+export const deleteExpense = async (expenseId: string) => {
+  try {
+    await deleteDoc(doc(db, "despeses", expenseId));
+  } catch (error) {
+    console.error("Error eliminant despesa:", error);
+    throw error;
+  }
+};

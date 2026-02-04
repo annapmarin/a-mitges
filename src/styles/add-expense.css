@@ -1,0 +1,160 @@
+.add-expense-page {
+  padding: 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.add-expense-page h1 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: left;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.back-btn:hover {
+  transform: translateX(-4px);
+  color: #fff;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.15s ease;
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.35);
+}
+
+.form-group select {
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+}
+
+.form-group select option {
+  background: rgba(20,20,20,0.95);
+  color: #ffffff;
+}
+
+.form-group select::-ms-expand {
+  display: none;
+}
+
+.participant-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.participant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.participant-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.participant-chip.selected {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.28);
+}
+
+.create-expense-btn {
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  transition: all 0.2s ease;
+  align-self: stretch;
+}
+
+.create-expense-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+.create-expense-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.participants-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.participants-checkboxes .participant-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+@media (max-width: 640px) {
+  .add-expense-page {
+    padding: 1.25rem;
+  }
+
+  .create-expense-btn {
+    width: 100%;
+  }
+}

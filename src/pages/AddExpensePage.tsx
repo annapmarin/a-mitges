@@ -5,6 +5,7 @@ import { useGroupDetails } from "../hooks/useGroupDetails";
 import { useCreateExpense } from "../hooks/useCreateExpense";
 import { Navbar } from "../components/Navbar";
 import { ParticipantSelector } from "../components/ParticipantSelector";
+import "../styles/add-expense.css";
 
 export default function AddExpensePage() {
   const { groupId } = useParams();
@@ -74,7 +75,7 @@ export default function AddExpensePage() {
             <option value="">Selecciona un participant</option>
             {participants.map((p) => (
               <option key={p.id} value={p.id}>
-                {p.nombre}
+                {p.id && user?.uid && p.id === user.uid ? "Tu" : p.name}
               </option>
             ))}
           </select>
@@ -85,6 +86,7 @@ export default function AddExpensePage() {
           selectedIds={splitBetween}
           onToggle={toggleParticipant}
           label="Dividir entre"
+          currentUserId={user?.uid}
         />
 
         <button 

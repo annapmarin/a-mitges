@@ -11,7 +11,7 @@ import { db } from "../config/firebase"
 export const saveUser = async (userId: string, email: string, displayName: string) => {
   try {
     await setDoc(doc(db, "users", userId), {
-      email,
+      email: email.toLowerCase().trim(),
       displayName,
       createdAt: new Date()
     }, { merge: true })

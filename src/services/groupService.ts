@@ -63,7 +63,7 @@ export const addGuestParticipant = async (
     const particpantRef = await addDoc(
       collection(db, "grups", groupId, "participants"),
       {
-        type: "guest",
+        type: "convidat",
         name,
         createdAt: serverTimestamp()
       }
@@ -108,7 +108,7 @@ export const getGroupParticipants = async (groupId: string) => {
     const participants = querySnapshot.docs.map(doc => {
       const data = doc.data();
       return {
-        id: data.type === "registered" && data.userId ? data.userId : doc.id,
+        id: data.type === "registrat" && data.userId ? data.userId : doc.id,
         docId: doc.id,
         ...data
       };

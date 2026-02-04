@@ -24,7 +24,7 @@ export default function CreateGroupPage() {
       addParticipant({
         id: user.uid,
         type: "registrat",
-        name: "Tu",
+        name: user.displayName || "Tu",
         email: user.email || ""
       })
     }
@@ -54,6 +54,7 @@ export default function CreateGroupPage() {
         <ParticipantsList 
           participants={participants}
           onRemove={removeParticipant}
+          currentUserId={user?.uid}
         />
 
         <Button

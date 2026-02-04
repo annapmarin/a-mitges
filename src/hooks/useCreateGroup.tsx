@@ -16,7 +16,10 @@ export function useCreateGroup(userId: string | undefined) {
   const [loading, setLoading] = useState(false);
 
   const addParticipant = (participant: Participant) => {
-    setParticipants([...participants, participant]);
+    setParticipants((prev) => {
+      if (prev.some(p => p.id === participant.id)) return prev
+      return [...prev, participant]
+    });
   };
 
   const removeParticipant = (id: string) => {
@@ -37,6 +40,8 @@ export function useCreateGroup(userId: string | undefined) {
 
       // Afegir participants
       for (const participant of participants) {
+        if (participant.id === userId) continue;
+
         if (participant.type === "registrat" && participant.email) {
           await addRegisteredParticipant(groupId, participant.id, participant.name, participant.email);
         } else {

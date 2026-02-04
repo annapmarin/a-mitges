@@ -3,13 +3,15 @@ interface ParticipantSelectorProps {
   selectedIds: string[];
   onToggle: (id: string) => void;
   label: string;
+  currentUserId?: string | null;
 }
 
 export function ParticipantSelector({ 
   participants, 
   selectedIds, 
   onToggle,
-  label 
+  label,
+  currentUserId
 }: ParticipantSelectorProps) {
   return (
     <div className="participant-selector">
@@ -22,7 +24,7 @@ export function ParticipantSelector({
               checked={selectedIds.includes(participant.id)}
               onChange={() => onToggle(participant.id)}
             />
-            <span>{participant.name}</span>
+            <span>{participant.id && currentUserId && participant.id === currentUserId ? "Tu" : participant.name}</span>
           </label>
         ))}
       </div>

@@ -10,7 +10,7 @@ import "../styles/group-detail.css";
 export default function GroupPage() {
   const { groupId } = useParams();
   const { user } = useAuth();
-  const { participants, expenses, loading } = useGroupDetails(groupId);
+  const { participants, expenses, loading, refetch } = useGroupDetails(groupId);
   const navigate = useNavigate();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [confirmText, setConfirmText] = useState("");
@@ -44,7 +44,11 @@ export default function GroupPage() {
           + Afegir despesa
         </button>
 
-        <ExpensesList expenses={expenses} participants={participants} />
+        <ExpensesList
+          expenses={expenses}
+          participants={participants}
+          onExpenseDeleted={() => refetch()}
+        />
 
         <button 
           className="delete-group-btn"

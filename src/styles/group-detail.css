@@ -69,6 +69,26 @@
   transform: translateY(-2px);
 }
 
+.expense-delete-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.15s ease;
+}
+
+.expense-delete-btn:hover {
+  background: rgba(255,50,50,0.14);
+  border-color: rgba(255,80,80,0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.expense-delete-btn svg { display: block; }
+
 .expense-header {
   display: flex;
   justify-content: space-between;
