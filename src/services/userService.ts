@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore"
 import { db } from "../config/firebase"
 
+// Guardar o actualizar un usuari a Firestore
 export const saveUser = async (userId: string, email: string, displayName: string) => {
   try {
     await setDoc(doc(db, "users", userId), {
@@ -23,6 +24,7 @@ export const saveUser = async (userId: string, email: string, displayName: strin
   }
 }
 
+// Cercar un usuari per email
 export const findUserByEmail = async (email: string) => {
   try {
     const q = query(
