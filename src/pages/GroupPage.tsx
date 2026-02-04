@@ -10,7 +10,7 @@ import "../styles/group-detail.css";
 export default function GroupPage() {
   const { groupId } = useParams();
   const { user } = useAuth();
-  const { participants, expenses, loading, refetch } = useGroupDetails(groupId);
+  const { participants, expenses, loading, groupName, refetch } = useGroupDetails(groupId);
   const navigate = useNavigate();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [confirmText, setConfirmText] = useState("");
@@ -37,6 +37,11 @@ export default function GroupPage() {
     <>
       {user && <Navbar user={user} />}
       <div className="group-page">
+        <button className="back-btn" onClick={() => navigate("/projectes")}>
+          ← Tornar
+        </button>
+        {/* Nom del grup */}
+        <h1>{groupName}</h1>
         <button 
           className="add-expense-btn"
           onClick={() => navigate(`/group/${groupId}/afegir-despesa`)}

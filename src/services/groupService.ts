@@ -2,6 +2,7 @@ import {
   collection, 
   addDoc, 
   serverTimestamp,
+  getDoc,
   query,
   where,
   getDocs,
@@ -117,6 +118,18 @@ export const getGroupParticipants = async (groupId: string) => {
     return participants;
   } catch (error) {
     console.error("Error en obtenir participants:", error);
+    throw error;
+  }
+};
+
+// Obtener un grupo por ID
+export const getGroupById = async (groupId: string) => {
+  try {
+    const groupDoc = await getDoc(doc(db, "grups", groupId));
+    if (!groupDoc.exists()) return null;
+    return { id: groupDoc.id, ...(groupDoc.data() as any) };
+  } catch (error) {
+    console.error("Error obtenint el grup:", error);
     throw error;
   }
 };
