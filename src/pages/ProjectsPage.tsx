@@ -34,7 +34,7 @@ export default function ProjectsPage() {
 
           <button
             className="add-group-btn"
-            onClick={() => navigate("/create-group")}
+            onClick={() => navigate("/crear-grup")}
           >
             + afegir nou grup
           </button>

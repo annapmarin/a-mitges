@@ -26,6 +26,40 @@
   transform: translateY(-2px);
 }
 
+.projects-page .group-card {
+  padding: 2rem;
+  width: 100%;
+  border-radius: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.projects-page .group-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.projects-page .group-card h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+.projects-page .group-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
 .projects-page .groups-list {
   display: grid;
   grid-template-columns: 100%;
@@ -34,10 +68,14 @@
 
 @media (min-width: 768px) {
   .projects-page .groups-list {
-    grid-template-columns: repeat(autofill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 
   .projects-page .add-group-btn {
+    width: 300px;
+  }
+
+  .projects-page .group-card {
     width: 300px;
   }
 }

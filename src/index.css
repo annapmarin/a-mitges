@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+body, button {
   font-size: 16px;
   font-family: 'Google Sans', sans-serif;
   background: radial-gradient(ellipse 120% 80% at 70% 20%, rgba(255, 20, 147, 0.15), transparent 50%),
