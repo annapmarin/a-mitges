@@ -9,6 +9,12 @@ export interface Participant {
   email?: string;
 }
 
+/**
+ * Hook personalitzat per gestionar la creació d'un nou grup i els seus participants.
+ * Proporciona l'estat i les funcions necessàries per a manejar el formulari de creació de grup.
+ * @param userId 
+ * @returns Object amb l'estat i les funcions per a crear un grup
+ */
 export function useCreateGroup(userId: string | undefined) {
   const navigate = useNavigate();
   const [groupName, setGroupName] = useState("");

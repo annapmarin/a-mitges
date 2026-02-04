@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import { getGroupParticipants, getGroupById } from "../services/groupService";
 import { getGroupExpenses } from "../services/expenseService";
 
+/**
+ * Hook personalitzat per gestionar la càrrega de les dades d'un grup específic.
+ * Obté els participants, les despeses i el nom del grup a partir de l'ID del grup.
+ * @param groupId 
+ * @returns Object amb les dades del grup i una funció per recarregar les dades
+ */
 export function useGroupDetails(groupId: string | undefined) {
   const [participants, setParticipants] = useState<any[]>([]);
   const [expenses, setExpenses] = useState<any[]>([]);

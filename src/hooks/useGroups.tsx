@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react"
 import { getUserGroups } from "../services/groupService"
 
+/**
+ * Hook personalitzat per gestionar la càrrega dels grups als quals pertany l'usuari actual.
+ * @param userId 
+ * @returns Object amb els grups de l'usuari, un indicador de càrrega i una funció per recarregar els grups
+ */
 export function useGroups(userId: string | undefined) {
   const [groups, setGroups] = useState<Array<any>>([])
   const [loading, setLoading] = useState<boolean>(true)
