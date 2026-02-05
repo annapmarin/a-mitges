@@ -13,6 +13,7 @@ export function useGroupDetails(groupId: string | undefined) {
   const [expenses, setExpenses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [groupName, setGroupName] = useState<string>("");
+  const [group, setGroup] = useState<any | null>(null);
 
   useEffect(() => {
     if (!groupId) return;
@@ -33,6 +34,7 @@ export function useGroupDetails(groupId: string | undefined) {
       setParticipants(participantsData);
       setExpenses(expensesData);
       setGroupName(groupData?.name || "");
+      setGroup(groupData || null);
     } catch (error) {
       console.error("Error:", error);
     } finally {
@@ -40,5 +42,5 @@ export function useGroupDetails(groupId: string | undefined) {
     }
   };
 
-  return { participants, expenses, loading, groupName, refetch: loadGroupData };
+  return { participants, expenses, loading, groupName, group, refetch: loadGroupData };
 }

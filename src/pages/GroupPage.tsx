@@ -11,7 +11,7 @@ import "../styles/group-detail.css";
 export default function GroupPage() {
   const { groupId } = useParams();
   const { user } = useAuth();
-  const { participants, expenses, loading, groupName, refetch } = useGroupDetails(groupId);
+  const { participants, expenses, loading, groupName, group, refetch } = useGroupDetails(groupId);
   const navigate = useNavigate();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [confirmText, setConfirmText] = useState("");
@@ -33,6 +33,16 @@ export default function GroupPage() {
   };
 
   if (loading) return <div>Carregant...</div>;
+
+  // Comprovar si l'usuari autenticat és creador o participant
+  const isCreator = user && group && group.creatorId === user.uid;
+  const isParticipant = user && participants.some(p => (p.userId && p.userId === user.uid) || p.id === user.uid);
+
+  if (user && !isCreator && !isParticipant) {
+    // Usuari autenticat però no té accés al grup
+    navigate("/")
+    return null
+  }
 
   return (
     <>

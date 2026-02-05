@@ -11,7 +11,12 @@ export function useGroups(userId: string | undefined) {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    if (!userId) return
+
+    if (!userId) {
+      setGroups([])
+      setLoading(false)
+      return
+    }
 
     loadGroups()
   }, [userId])

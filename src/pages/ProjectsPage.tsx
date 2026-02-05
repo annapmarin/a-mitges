@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Navigate } from "react-router-dom"
 import { Navbar } from "../components/Navbar"
 import { GroupCard } from "../components/GroupCard"
 import { useAuth } from "../hooks/useAuth"
@@ -14,7 +14,9 @@ export default function ProjectsPage() {
 
   const getRandomColor = () => COLORS[Math.floor(Math.random() * COLORS.length)]
 
-  if (authLoading || groupsLoading) return <div>Cargant...</div>
+  if (authLoading || groupsLoading) return <div>Carregant...</div>
+
+  if (!authLoading && !user) return <Navigate to="/" replace />
 
   return (
     <>
