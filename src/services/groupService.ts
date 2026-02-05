@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore"
 import { db } from "../config/firebase"
 
+// Crear un nou grup
 export const createGroup = async (groupName: string, creatorId: string) => {
   try {
     const groupRef = await addDoc(collection(db, "grups"), {
